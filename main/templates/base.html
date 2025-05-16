@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock title %}</title>
+        <style>{% block styles %}{% endblock styles %}</style>
+        <script>{% block sripts %}{% endblock sripts %}</script>
+        <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+        {% block links %}{% endblock links %}
+    </head>
+    <body>
+        <div id="header">
+
+            <div id="banner">
+                <img src="{% static 'src/banner.png' %}" alt="Banner">
+            </div>
+
+            <nav class="navbar">
+                <div class="nav-container">
+                    <ul class="nav-links">
+                        <li><a href="/">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/aboutus/profile/">Profile</a></li>
+                                <li><a href="/aboutus/pastor-">Pastor</a></li>
+                                <li><a href="/aboutus/pastor-">Pastor</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/live-telecast/">Live Telecast</a></li>
+                        <li class="dropdown">
+                            <a href="#">Videos</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/videos/pastor/">Pastor Videos</a></li>
+                                <li><a href="/videos/other/">Other Videos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/bible/">Bible</a></li>
+                        <li><a href="/dictionary/">Dictionary</a></li>
+                        <li><a href="/audio/lyrics">Audio Lyrics</a></li>
+                        <li><a href="/audio/songs">Audio Songs</a></li>
+                        <li><a href="/books/">Books</a></li>
+                        <li><a href="/gallery/">Image Gallery</a></li>
+                        <li><a href="/location/">Location</a></li>
+                        <li><a href="/contactus/">Contact Us</a></li>
+                        <li><a href="/donate/">Donate</a></li>
+                    </ul>
+                </div>
+            </nav>
+    </div>
+
+
+
+        {% block body %}{% endblock body %}
+
+
+
+        <div id="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/aboutus/profile/">Profile</a></li>
+                        <li><a href="/aboutus/pastor-/">Pastor </a></li>
+                        <li><a href="/aboutus/pastor-/">Pastor </a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Videos</h3>
+                    <ul>
+                        <li><a href="/videos/pastor/">Pastor Rajesh Videos</a></li>
+                        <li><a href="/videos/other/">Other Videos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Audio</h3>
+                    <ul>
+                        <li><a href="/audio/lyrics/">Audio Lyrics</a></li>
+                        <li><a href="/audio/songs/">Audio Songs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Extras</h3>
+                    <ul>
+                        <li><a href="/books/">Books</a></li>
+                        <li><a href="/gallery/">Image Gallery</a></li>
+                        <li><a href="/location/">Location</a></li>
+                        <li><a href="/contactus/">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="social-media">
+                <a href="#" class="social-icon facebook"><img src="{% static 'src/facebook.png' %}" alt="Facebook"></a>
+                {% comment %} <a href="#" class="social-icon google-play"><img src="{% static 'src/google-play.png' %}" alt="Google Play"></a> {% endcomment %}
+                <a href="#" class="social-icon instagram"><img src="{% static 'src/instagram.png' %}" alt="Instagram"></a>
+                <a href="#" class="social-icon youtube"><img src="{% static 'src/youtube.png' %}" alt="YouTube"></a>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="/terms/">Terms & Conditions</a>
+                    <a href="/privacy/">Privacy Policy</a>
+                </div>
+                <div class="copyright">
+                    © 2025 Mount Zion Pentecostal Ministries
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
