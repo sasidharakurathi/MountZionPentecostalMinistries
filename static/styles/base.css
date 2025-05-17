@@ -94,7 +94,7 @@ body {
 .dropdown-menu {
     display: none;
     position: absolute;
-    background: #eee;
+    background: #444;
     min-width: 180px;
     top: 100%;
     left: 0;
@@ -102,17 +102,25 @@ body {
     box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     border-radius: 0 0 6px 6px;
     overflow: hidden;
+    list-style: none; /* Ensure no bullet points in dropdown */
+    padding-left: 0;  /* Remove left padding */
+    margin-left: 0;   /* Remove left margin */
+}
+
+.dropdown-menu li {
+    padding-left: 0;  /* Remove left padding for li */
+    margin-left: 0;   /* Remove left margin for li */
 }
 
 .dropdown-menu li a {
     padding: 12px 20px;
     font-size: 1rem;
-    color: #fff;
+    color: white;
     white-space: nowrap;
 }
 
 .dropdown-menu li a:hover {
-    background: #444;
+    background: #686666;
     color: #ffcc00;
 }
 
