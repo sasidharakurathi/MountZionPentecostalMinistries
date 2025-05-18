@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-U
+{% load static %}
 {% block title %}Mount Zion Pentecostal Ministries{% endblock title %}
 
 {% block links %}
@@ -8,8 +8,36 @@ U
 {% endblock links %}
 
 {% block body %}
-    <div id="poster-container">
-        <div id="poster">hi</div>
-        <div id="div1">bye</div>
+    <div id="main-container">
+        <div id="poster-container">
+            <div id="poster">
+                <img src="{% static 'src/img1.jpg' %}" alt="img1">
+            </div>
+            <div id="div1">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0; margin: 0; padding: 0;">
+                    <p style="margin-bottom: 5px;">Mount Zion</p>
+                    <p style="margin-top: 0; margin-bottom: 0;">Pentecostal Ministries</p>
+                    <button>GET INVOLVED</button>
+                </div>
+                <p id="call" style="font-size: x-large; font-weight: bolder;">Call: +91 1234567890</p>
+            </div>
+        </div>
+
+        <div id="branch-container">
+            <p>Mount Zion - Main Branch</p>
+
+            <div id="video-container">
+                <div id="branch-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/yU0rG4HLXqY?si=Hzs8Y5tXWq9fV3R5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div id="about-branch">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi fugit modi doloremque, minus porro amet voluptates quidem, adipisci debitis molestiae quod, voluptate cum nisi architecto laudantium. Fuga error vel fugiat!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officia iure, facere eum totam consequatur? Cum, quia. Ad rerum aliquam voluptates vero reprehenderit ullam soluta consectetur recusandae. Illo, molestias eum.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock body %}
