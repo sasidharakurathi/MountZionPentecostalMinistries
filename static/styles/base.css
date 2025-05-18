@@ -36,6 +36,13 @@ body {
     background-color: maroon;
 }
 
+#logonav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
 .navbar {
     background: #fff;
     color: black;
@@ -43,25 +50,21 @@ body {
     box-sizing: border-box;
     padding: 0;
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0;
+    margin-left: auto;
     display: flex;
     padding: 0 24px;
     flex-wrap: wrap;
+    align-items: end;
 
 }
 
-.logo {
-    font-size: 1.7rem;
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 2px;
-}
 
 .nav-links {
     list-style: none;

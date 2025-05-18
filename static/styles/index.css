@@ -1,0 +1,16 @@
+#poster-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#poster {
+    background-color: red;
+    width: 100%;
+    height: 50%;
+}
+
+#div1 {
+    background-color: blue;
+    width: 100%;
+    height: 50%;
+}
