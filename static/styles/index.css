@@ -466,8 +466,10 @@
         min-height: 100px;
     }
     #scroll-image {
-        max-width: 100vw;
-        max-height: 100px;
+        max-width: 98vw;
+        max-height: 220px;
+        height: auto;
+        min-height: 120px;
     }
     #left-arrow, #right-arrow {
         width: 28px;
@@ -475,4 +477,14 @@
         left: 0;
         right: 0;
     }
+
+    #image-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Changed from absolute to relative */
+    z-index: 1;
+}
 }
