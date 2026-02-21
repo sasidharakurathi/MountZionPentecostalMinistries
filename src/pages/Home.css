@@ -1,0 +1,11 @@
+/* Home page styles */
+.home {
+  background: #fff;
+}
+
+/* Section spacing */
+.poster-section,
+.headquarters-section,
+.aboutus-section {
+  margin: 0;
+}
