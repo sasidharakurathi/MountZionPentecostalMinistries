@@ -4,10 +4,6 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <header id="header">
       <div id="banner">
@@ -20,22 +16,29 @@ const Header = () => {
             <img src="/logo.png" alt="Mount Zion Pentecostal Ministries Logo" className="logo-image" />
             <h1>Mount Zion Pentecostal Ministries</h1>
           </div>
-          <button className="hamburger" aria-label="Toggle navigation" onClick={toggleMenu}>
+
+          <button
+            className="hamburger"
+            aria-label="Toggle navigation"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <span></span>
             <span></span>
             <span></span>
           </button>
-          <nav className="navbar">
+
+          <nav className={`navbar ${isMenuOpen ? 'open' : ''}`}>
             <div className="nav-container">
-              <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-                <li><a href="/">Home</a></li>
-                <li><a href="/pastor">Pastor</a></li>
-                <li><a href="/beliefs">Our Beliefs</a></li>
-                <li><a href="/contact">Contact Us</a></li>
-                <li><a href="/locations">Locations</a></li>
-                <li><a href="/songs">Mount Zion Songs</a></li>
-                <li><a href="/events">Events</a></li>
-                <li><a href="/donate">Donate</a></li>
+              <ul className="nav-links">
+                <li><a href="/" onClick={() => setIsMenuOpen(false)}>Home</a></li>
+                <li><a href="/pastor" onClick={() => setIsMenuOpen(false)}>Pastor</a></li>
+                <li><a href="/beliefs" onClick={() => setIsMenuOpen(false)}>Our Beliefs</a></li>
+                <li><a href="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</a></li>
+                <li><a href="/locations" onClick={() => setIsMenuOpen(false)}>Locations</a></li>
+                <li><a href="/songs" onClick={() => setIsMenuOpen(false)}>Songs</a></li>
+                <li><a href="/events" onClick={() => setIsMenuOpen(false)}>Events</a></li>
+                <li><a href="/donate" onClick={() => setIsMenuOpen(false)}>Donate</a></li>
               </ul>
             </div>
           </nav>
