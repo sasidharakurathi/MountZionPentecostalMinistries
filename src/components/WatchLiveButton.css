@@ -76,8 +76,9 @@
 /* Mobile: smaller */
 @media (max-width: 500px) {
     .watch-live-btn {
-        bottom: 1.25rem;
-        right: 1.25rem;
+        bottom: 5.5rem;
+        left: 1.25rem;
+        right: auto;
         font-size: 0.8rem;
         padding: 0.65rem 1rem;
     }

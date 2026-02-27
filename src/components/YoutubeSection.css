@@ -1,0 +1,219 @@
+/* ═══════════════════════════════
+   YOUTUBE PROMO SECTION
+═══════════════════════════════ */
+.youtube-section {
+    padding: 3rem 1.5rem 4rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .youtube-section {
+        padding: 2rem 1.5rem 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .youtube-section {
+        padding: 1.5rem 1.5rem 2.5rem;
+    }
+}
+
+.youtube-heading {
+    margin-bottom: 3rem;
+    padding: 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.youtube-heading h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667EEA, #764BA2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.8rem;
+}
+
+.youtube-heading p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.youtube-heading p strong {
+    color: #667EEA;
+}
+
+/* ─── Subscribe Card ─── */
+.youtube-subscribe-card {
+    background: #ffffff;
+    max-width: 820px;
+    margin: 0 auto 4rem;
+    padding: 2.2rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 40px rgba(102, 126, 234, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border: 1px solid rgba(102, 126, 234, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.youtube-subscribe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 50px rgba(102, 126, 234, 0.18);
+}
+
+.youtube-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.youtube-channel-info {
+    text-align: left;
+    flex: 1;
+}
+
+.youtube-channel-info h3 {
+    font-size: 1.25rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+}
+
+.youtube-channel-info p {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    margin: 0;
+}
+
+.youtube-btn {
+    background: #FF0000;
+    color: white;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.youtube-btn:hover {
+    background: #cc0000;
+    transform: scale(1.04);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* ─── Video Grid: 2 columns × 2 rows ─── */
+.youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .youtube-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Each video card (aspect ratio wrapper + caption) */
+.youtube-video-item {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.youtube-video-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.18);
+}
+
+/* Responsive 16:9 iframe */
+.youtube-video-item .iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.youtube-video-item .iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.youtube-video-caption {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    line-height: 1.4;
+    border-top: 1px solid rgba(102, 126, 234, 0.08);
+}
+
+/* ─── See More Button ─── */
+.youtube-more {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.youtube-more-btn {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667EEA, #764BA2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.4);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.youtube-more-btn:hover {
+    border-color: #764BA2;
+    opacity: 0.85;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 860px) {
+    .youtube-subscribe-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .youtube-channel-info {
+        text-align: center;
+    }
+
+    .youtube-grid {
+        grid-template-columns: 1fr;
+    }
+}

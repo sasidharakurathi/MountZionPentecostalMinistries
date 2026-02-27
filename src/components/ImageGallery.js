@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './ImageGallery.css';
+import AnimateOnScroll from './AnimateOnScroll';
 
 const images = [
   { src: '/1.png', alt: 'Ministry Event 1' },
@@ -27,40 +28,46 @@ const ImageGallery = () => {
   return (
     <section className="gallery-section">
       <div className="container">
-        <div className="gallery-heading">
-          <h2>Photo Gallery</h2>
-          <div className="divider"></div>
-        </div>
+        <AnimateOnScroll animation="slide-up">
+          <div className="gallery-heading">
+            <h2>Photo Gallery</h2>
+            <div className="divider"></div>
+          </div>
+        </AnimateOnScroll>
 
         {/* Main viewer */}
-        <div className="gallery-viewer">
-          <button className="gallery-arrow left" aria-label="Previous" onClick={prev}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
+        <AnimateOnScroll animation="scale-in" delay={0.2}>
+          <div className="gallery-viewer">
+            <button className="gallery-arrow left" aria-label="Previous" onClick={prev}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline stroke="currentColor" points="15 18 9 12 15 6" />
+              </svg>
+            </button>
 
-          <img src={images[current].src} alt={images[current].alt} />
+            <img src={images[current].src} alt={images[current].alt} />
 
-          <button className="gallery-arrow right" aria-label="Next" onClick={() => { setAuto(false); next(); }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-        </div>
+            <button className="gallery-arrow right" aria-label="Next" onClick={() => { setAuto(false); next(); }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline stroke="currentColor" points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+        </AnimateOnScroll>
 
         {/* Thumbnails */}
-        <div className="gallery-thumbs">
-          {images.map((img, i) => (
-            <img
-              key={i}
-              src={img.src}
-              alt={`Thumbnail ${i + 1}`}
-              className={`gallery-thumb ${i === current ? 'active' : ''}`}
-              onClick={() => goTo(i)}
-            />
-          ))}
-        </div>
+        <AnimateOnScroll animation="fade-in" delay={0.4}>
+          <div className="gallery-thumbs">
+            {images.map((img, i) => (
+              <img
+                key={i}
+                src={img.src}
+                alt={`Thumbnail ${i + 1}`}
+                className={`gallery-thumb ${i === current ? 'active' : ''}`}
+                onClick={() => goTo(i)}
+              />
+            ))}
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

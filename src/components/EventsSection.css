@@ -2,14 +2,26 @@
    EVENTS SECTION
 ═══════════════════════ */
 .events-section {
-    padding: 5rem 0;
-    background: var(--white);
+    padding: 3rem 1.5rem 4rem;
+    background: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .events-section {
+        padding: 2rem 1.5rem 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-section {
+        padding: 1.5rem 1.5rem 2.5rem;
+    }
 }
 
 .events-container {
-    max-width: var(--max-width);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0;
 }
 
 .events-heading {
@@ -19,8 +31,11 @@
 
 .events-heading h2 {
     font-size: 2.4rem;
-    color: var(--maroon);
     font-weight: 700;
+    background: linear-gradient(135deg, #667EEA, #764BA2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .events-heading .divider {
@@ -39,8 +54,17 @@
 /* Events grid */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
 }
 
 /* Each event card */
@@ -48,26 +72,26 @@
     display: flex;
     gap: 1.25rem;
     align-items: flex-start;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--maroon);
-    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid rgba(102, 126, 234, 0.15);
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(to bottom, #667EEA, #764BA2) 1;
+    border-radius: 20px;
     padding: 1.5rem;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 24px rgba(102, 126, 234, 0.08);
     transition: var(--transition);
 }
 
 .event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-left-color: var(--gold);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.18);
 }
 
 /* Date box */
 .event-date-box {
-    background: var(--maroon);
+    background: linear-gradient(135deg, #667EEA, #764BA2);
     color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 0.75rem 1rem;
     text-align: center;
     min-width: 64px;
@@ -76,6 +100,7 @@
     align-items: center;
     flex-shrink: 0;
     gap: 0.1rem;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .event-day {
@@ -110,8 +135,8 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--maroon);
-    background: rgba(128, 0, 0, 0.08);
+    color: #667EEA;
+    background: rgba(102, 126, 234, 0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 20px;
     align-self: flex-start;

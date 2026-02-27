@@ -1,29 +1,33 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './TestimonialsSection.css';
-
-const testimonials = [
-    {
-        quote: `Mount Zion has transformed our family's faith journey. The Word of God is preached with such power and love here. We are truly blessed to be part of this ministry.`,
-        name: 'Br. Samuel Raju',
-        role: 'Member since 2015',
-        avatar: '🙏',
-    },
-    {
-        quote: `I was going through the darkest time of my life when I walked into Mount Zion. Through the prayers, worship and teachings, God completely restored me. Praise the Lord!`,
-        name: 'Sis. Priya Kumari',
-        role: 'Member since 2018',
-        avatar: '✝️',
-    },
-    {
-        quote: `Pastor's anointed preaching and the spirit-filled worship at Mount Zion have helped me grow immensely in my walk with God. This is truly a house of God.`,
-        name: 'Br. Joshua Emmanuel',
-        role: 'Member since 2020',
-        avatar: '🕊️',
-    },
-];
+import AnimateOnScroll from './AnimateOnScroll';
 
 const TestimonialsSection = () => {
+    const { t: tr } = useTranslation();
     const [active, setActive] = useState(0);
+
+    // Dynamically create testimonials array from translations
+    const testimonials = [
+        {
+            quote: tr('testimonials.t1_quote'),
+            name: tr('testimonials.t1_name'),
+            role: tr('testimonials.t1_role'),
+            avatar: '🙏',
+        },
+        {
+            quote: tr('testimonials.t2_quote'),
+            name: tr('testimonials.t2_name'),
+            role: tr('testimonials.t2_role'),
+            avatar: '✝️',
+        },
+        {
+            quote: tr('testimonials.t3_quote'),
+            name: tr('testimonials.t3_name'),
+            role: tr('testimonials.t3_role'),
+            avatar: '🕊️',
+        },
+    ];
 
     const prev = () => setActive(i => (i - 1 + testimonials.length) % testimonials.length);
     const next = () => setActive(i => (i + 1) % testimonials.length);
@@ -33,45 +37,49 @@ const TestimonialsSection = () => {
     return (
         <section className="testimonials-section">
             <div className="testimonials-container">
-                <div className="testimonials-heading">
-                    <h2>Testimonies</h2>
-                    <div className="divider"></div>
-                    <p>Hear what God is doing in the lives of our congregation.</p>
-                </div>
-
-                <div className="testimonial-card">
-                    <div className="testimonial-avatar">{t.avatar}</div>
-                    <blockquote className="testimonial-quote">
-                        "{t.quote}"
-                    </blockquote>
-                    <div className="testimonial-author">
-                        <strong>{t.name}</strong>
-                        <span>{t.role}</span>
+                <AnimateOnScroll animation="slide-up">
+                    <div className="testimonials-heading">
+                        <h2>{tr('testimonials.heading')}</h2>
+                        <div className="divider"></div>
+                        <p>{tr('testimonials.sub')}</p>
                     </div>
+                </AnimateOnScroll>
 
-                    <div className="testimonial-controls">
-                        <button onClick={prev} aria-label="Previous testimony">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <polyline points="15 18 9 12 15 6" />
-                            </svg>
-                        </button>
-                        <div className="testimonial-dots">
-                            {testimonials.map((_, i) => (
-                                <button
-                                    key={i}
-                                    className={`dot ${i === active ? 'active' : ''}`}
-                                    onClick={() => setActive(i)}
-                                    aria-label={`Testimony ${i + 1}`}
-                                />
-                            ))}
+                <AnimateOnScroll animation="scale-in" delay={0.2}>
+                    <div className="testimonial-card">
+                        <div className="testimonial-avatar">{t.avatar}</div>
+                        <blockquote className="testimonial-quote">
+                            "{t.quote}"
+                        </blockquote>
+                        <div className="testimonial-author">
+                            <strong>{t.name}</strong>
+                            <span>{t.role}</span>
                         </div>
-                        <button onClick={next} aria-label="Next testimony">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg>
-                        </button>
+
+                        <div className="testimonial-controls">
+                            <button onClick={prev} aria-label="Previous testimony">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="15 18 9 12 15 6" />
+                                </svg>
+                            </button>
+                            <div className="testimonial-dots">
+                                {testimonials.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        className={`dot ${i === active ? 'active' : ''}`}
+                                        onClick={() => setActive(i)}
+                                        aria-label={`Testimony ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                            <button onClick={next} aria-label="Next testimony">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="9 18 15 12 9 6" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </AnimateOnScroll>
             </div>
         </section>
     );

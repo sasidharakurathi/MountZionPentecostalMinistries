@@ -1,24 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* ═══════════════════════════════
+   LIGHT & GLORY COLOR SYSTEM
+   Mount Zion Pentecostal Ministries
+═══════════════════════════════ */
 :root {
-  --maroon: #800000;
-  --maroon-light: #a00000;
-  --maroon-dark: #5c0000;
-  --gold: #c9a84c;
-  --white: #ffffff;
-  --off-white: #f9f9f9;
-  --light-gray: #f2f2f2;
-  --dark: #1a1a1a;
-  --gray-text: #555555;
-  --border: #e0e0e0;
+  /* ─ Core Light Palette ─ */
+  --heaven: #FDFBFF;
+  --heaven-glow: #E8F4FF;
+  --sunrise-start: #FFD6A5;
+  --sunrise-end: #FF9A9E;
+  --worship-start: #667EEA;
+  --worship-end: #764BA2;
+  --gold-start: #F6D365;
+  --gold-end: #FDA085;
+  --life-start: #43E97B;
+  --life-end: #38F9D7;
 
+  /* ─ Semantic Aliases (for legacy component compatibility) ─ */
+  --maroon: #667EEA;
+  /* worship blue – primary accent */
+  --maroon-light: #8b9ef5;
+  --maroon-dark: #4a5fd4;
+  --gold: #D4A017;
+  --white: #ffffff;
+  /* heaven background */
+  --off-white: #ffffff;
+  --light-gray: #E8EEFF;
+  --dark: #1B1B1F;
+  --gray-text: rgba(0, 0, 0, 0.6);
+  --border: rgba(102, 126, 234, 0.2);
+
+  /* ─ Font ─ */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', sans-serif;
 
+  /* ─ Spacing / Misc ─ */
   --max-width: 1200px;
-  --transition: all 0.3s ease;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.14);
+  --transition: all 0.35s ease;
+  --shadow: 0 4px 24px rgba(102, 126, 234, 0.1);
+  --shadow-hover: 0 12px 40px rgba(102, 126, 234, 0.22);
+  --radius-card: 20px;
 }
 
 * {
@@ -68,7 +90,7 @@ button {
   font-family: var(--font-body);
 }
 
-/* Layout Utilities */
+/* ─── Layout Utilities ─── */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -76,14 +98,27 @@ button {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 6rem 1.5rem;
 }
 
 .section-alt {
   background: var(--off-white);
 }
 
-/* Section Header */
+/* Standardized section padding for better spacing */
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* ─── Section Header ─── */
 .section-header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -92,14 +127,17 @@ button {
 .section-header h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--maroon);
+  background: linear-gradient(135deg, var(--worship-start), var(--worship-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.75rem;
 }
 
 .section-header .divider {
   width: 60px;
   height: 3px;
-  background: var(--gold);
+  background: linear-gradient(90deg, var(--worship-start), var(--worship-end));
   margin: 0 auto 1rem;
   border-radius: 2px;
 }
@@ -111,7 +149,16 @@ button {
   margin: 0 auto;
 }
 
-/* Scrollbar */
+/* ─── Divider (legacy) ─── */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--worship-start), var(--worship-end));
+  margin: 0.75rem auto 1rem;
+  border-radius: 2px;
+}
+
+/* ─── Custom Scrollbar ─── */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -121,20 +168,24 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--maroon);
+  background: linear-gradient(var(--worship-start), var(--worship-end));
   border-radius: 4px;
 }
 
-/* Focus */
+/* ─── Focus states ─── */
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--maroon);
+  outline: 2px solid var(--worship-start);
   outline-offset: 2px;
 }
 
 /* ═══════════════════════
-   SCROLL FADE-IN ANIMATIONS
+   SCROLL ANIMATIONS
 ═══════════════════════ */
+.animate-on-scroll {
+  will-change: opacity, transform;
+}
+
 .fade-in {
   opacity: 0;
   transform: translateY(28px);
@@ -146,25 +197,58 @@ a:focus-visible {
   transform: translateY(0);
 }
 
-.fade-in-delay-1 {
-  transition-delay: 0.1s;
+.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in-delay-2 {
-  transition-delay: 0.2s;
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.fade-in-delay-3 {
-  transition-delay: 0.3s;
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.fade-in-delay-4 {
-  transition-delay: 0.4s;
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-right.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .fade-in {
+
+  .fade-in,
+  .slide-up,
+  .scale-in,
+  .fade-left,
+  .fade-right {
     opacity: 1;
     transform: none;
     transition: none;

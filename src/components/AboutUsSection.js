@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutUsSection.css';
+import AnimateOnScroll from './AnimateOnScroll';
 
 const AboutUsSection = () => {
   const missions = [
@@ -26,27 +27,33 @@ const AboutUsSection = () => {
   ];
 
   return (
-    <section className="about-section">
+    <section className="about-section" id="values">
       <div className="container">
 
-        <div className="about-heading">
-          <h2>About Us</h2>
-          <div className="divider"></div>
-        </div>
+        <AnimateOnScroll animation="slide-up">
+          <div className="about-heading">
+            <h2>About Us</h2>
+            <div className="divider"></div>
+          </div>
+        </AnimateOnScroll>
 
-        <p className="about-intro">
-          Here at Mount Zion Pentecostal Ministries we desire to become disciples who make disciples.
-          Our Ministry encourages every believer and helps them through difficult times, building a
-          community rooted in faith, love and service.
-        </p>
+        <AnimateOnScroll animation="slide-up" delay={0.1}>
+          <p className="about-intro">
+            Here at Mount Zion Pentecostal Ministries we desire to become disciples who make disciples.
+            Our Ministry encourages every believer and helps them through difficult times, building a
+            community rooted in faith, love and service.
+          </p>
+        </AnimateOnScroll>
 
         <div className="mission-grid">
           {missions.map((m, i) => (
-            <div className="mission-card" key={i}>
-              <div className="mission-icon">{m.icon}</div>
-              <h3>{m.title}</h3>
-              <p>{m.desc}</p>
-            </div>
+            <AnimateOnScroll key={i} animation="scale-in" delay={i * 0.1}>
+              <div className="mission-card">
+                <div className="mission-icon">{m.icon}</div>
+                <h3>{m.title}</h3>
+                <p>{m.desc}</p>
+              </div>
+            </AnimateOnScroll>
           ))}
         </div>
 

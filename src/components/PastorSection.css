@@ -1,0 +1,236 @@
+/* ═══════════════════════════════
+   PASTOR SECTION
+   Professional, Minimal, Elegant
+═══════════════════════════════ */
+.pastor-section {
+    padding: 3rem 1.5rem 4rem;
+    background: #ffffff;
+    font-family: var(--font-body, 'Inter', sans-serif);
+    position: relative;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .pastor-section {
+        padding: 2rem 1.5rem 3rem;
+        background: #ffffff;
+    }
+}
+
+.pastor-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 30;
+}
+
+/* ─── Layout ─── */
+@media (max-width: 900px) {
+    .pastor-card {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .pastor-image-wrap,
+    .pastor-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .pastor-card {
+        max-width: 600px;
+    }
+}
+
+/* ─── Image Side ─── */
+.pastor-image-wrap {
+    padding: 0;
+    width: 45%;
+    flex-shrink: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .pastor-image-wrap {
+        padding: 1.5rem 1.5rem 0;
+        background: transparent;
+    }
+}
+
+.pastor-image-inner {
+    width: 100%;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+    transform: translateY(0);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, var(--worship-start), var(--worship-end));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.pastor-image-wrap:hover .pastor-image-inner {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(102, 126, 234, 0.3);
+}
+
+.pastor-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.05) saturate(1.05);
+    transition: transform 0.6s ease;
+}
+
+.pastor-image-wrap:hover .pastor-img {
+    transform: scale(1.04);
+}
+
+/* Subtle overlay on the image for elegance */
+.pastor-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* ─── Content Side ─── */
+.pastor-content {
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .pastor-content {
+        padding: 2rem 2rem 2rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pastor-content {
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+}
+
+.pastor-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #4f46e5;
+    /* Elegant purple/blue */
+    margin-bottom: 0.75rem;
+}
+
+.pastor-name {
+    font-family: var(--font-heading, "Playfair Display", serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--worship-start), var(--worship-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.pastor-title {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.pastor-divider {
+    width: 40px;
+    height: 3px;
+    background: #4f46e5;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .pastor-divider {
+        margin: 0 auto 1.5rem auto;
+    }
+}
+
+.pastor-bio {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 1.2rem;
+}
+
+.pastor-quote {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #1f2937;
+    padding-left: 1.2rem;
+    border-left: 3px solid #e0e7ff;
+    margin: 1.5rem 0 2rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .pastor-quote {
+        padding-left: 0;
+        border-left: none;
+    }
+}
+
+.pastor-quote footer {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-style: normal;
+}
+
+/* Button */
+.pastor-read-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    color: #4f46e5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1.5px solid #4f46e5;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .pastor-read-more {
+        align-self: center;
+    }
+}
+
+.pastor-read-more:hover {
+    background: #4f46e5;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,153 @@
+/* ═══════════════════════════════
+   CONTACT & PRAYER REQUEST
+═══════════════════════════════ */
+.contact-section {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, #F0F4FF 0%, #EDE8FF 100%);
+    color: var(--dark);
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 3rem 1.5rem;
+  }
+}
+
+.contact-heading {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contact-heading h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667EEA, #764BA2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-heading);
+}
+
+.contact-heading p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.contact-grid h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+/* ─── FORM ─── */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray-text);
+}
+
+.form-group input,
+.form-group textarea {
+    background: #ffffff;
+    border: 1.5px solid rgba(102, 126, 234, 0.25);
+    border-radius: 12px;
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667EEA;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.12);
+}
+
+.contact-submit-btn {
+    background: linear-gradient(135deg, #667EEA, #764BA2);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    padding: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.35);
+}
+
+.contact-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(102, 126, 234, 0.5);
+}
+
+/* ─── MAP & INFO ─── */
+.contact-map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.contact-details p {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.contact-details strong {
+    color: #667EEA;
+}
+
+@media (max-width: 800px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}

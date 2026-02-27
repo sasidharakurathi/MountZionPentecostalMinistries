@@ -1,29 +1,27 @@
 import React from 'react';
-import PosterSection from '../components/PosterSection';
-import StatsBar from '../components/StatsBar';
-import HeadquartersSection from '../components/HeadquartersSection';
-import AboutUsSection from '../components/AboutUsSection';
+import HeroSection from '../components/HeroSection';
+import WorshipSection from '../components/WorshipSection';
+import PastorSection from '../components/PastorSection';
 import EventsSection from '../components/EventsSection';
-import ImageGallery from '../components/ImageGallery';
 import TestimonialsSection from '../components/TestimonialsSection';
-import BlogSection from '../components/BlogSection';
+import YoutubeSection from '../components/YoutubeSection';
+import ContactSection from '../components/ContactSection';
 import WatchLiveButton from '../components/WatchLiveButton';
+import WhatsAppButton from '../components/WhatsAppButton';
 import './Home.css';
 
-const Home = () => {
-  return (
-    <div className="home">
-      <PosterSection />
-      <StatsBar />
-      <HeadquartersSection />
-      <AboutUsSection />
-      <EventsSection />
-      <ImageGallery />
-      <TestimonialsSection />
-      <BlogSection />
-      <WatchLiveButton />
-    </div>
-  );
-};
+const Home = () => (
+  <div className="home">
+    <HeroSection />
+    <PastorSection />
+    <WorshipSection />
+    <EventsSection />
+    <TestimonialsSection />
+    <YoutubeSection />
+    <ContactSection />
+    <WatchLiveButton />
+    <WhatsAppButton />
+  </div>
+);
 
 export default Home;

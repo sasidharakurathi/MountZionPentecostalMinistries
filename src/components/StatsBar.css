@@ -2,7 +2,7 @@
    STATS BAR
 ═══════════════════════ */
 .stats-bar {
-    background: var(--maroon);
+    background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
     padding: 3rem 1.5rem;
 }
 

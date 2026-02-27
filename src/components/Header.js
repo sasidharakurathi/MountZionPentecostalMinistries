@@ -1,47 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Header.css';
 
+const NAV_LINKS = [
+  { label: 'Home', anchor: '#home' },
+  { label: 'Worship', anchor: '#worship' },
+  { label: 'Sermons', anchor: '#sermons' },
+  { label: 'Ministries', anchor: '#ministries' },
+  { label: 'Contact', anchor: '#contact' },
+];
+
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { i18n } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const scrollTo = (e, anchor) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    document.querySelector(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <header id="header">
-      <div id="banner">
-        <h3>WE PREACH CHRIST RESURRECTED</h3>
-      </div>
-
-      <div id="logonav">
+    <header id="header" className={scrolled ? 'scrolled' : ''}>
+      <div id="logonav" className="glass-bar">
         <div className="logo-nav-flex">
-          <div className="logo-section">
-            <img src="/logo.png" alt="Mount Zion Pentecostal Ministries Logo" className="logo-image" />
-            <h1>Mount Zion Pentecostal Ministries</h1>
+
+          {/* Logo */}
+          <a href="#home" onClick={e => scrollTo(e, '#home')} className="logo-link">
+            <img src="/logo.png" alt="Mount Zion Logo" className="logo-image" />
+          </a>
+
+          {/* Nav */}
+          <nav className={`navbar ${menuOpen ? 'open' : ''}`} aria-label="Main navigation">
+            <ul className="nav-links">
+              {NAV_LINKS.map(({ label, anchor }) => (
+                <li key={anchor}>
+                  <a href={anchor} onClick={e => scrollTo(e, anchor)}>{label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Right actions */}
+          <div className="nav-right">
+            <button className="lang-toggle-btn" onClick={() =>
+              i18n.changeLanguage(i18n.language === 'en' ? 'te' : 'en')
+            }>
+              {i18n.language === 'en' ? 'తెలుగు' : 'English'}
+            </button>
+
+            <a
+              href="#contact"
+              onClick={e => scrollTo(e, '#contact')}
+              className="plan-visit-btn"
+            >
+              Plan Your Visit
+            </a>
+
+            <button
+              className={`hamburger ${menuOpen ? 'open' : ''}`}
+              aria-label="Toggle navigation"
+              onClick={() => setMenuOpen(v => !v)}
+            >
+              <span /><span /><span />
+            </button>
           </div>
 
-          <button
-            className="hamburger"
-            aria-label="Toggle navigation"
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <nav className={`navbar ${isMenuOpen ? 'open' : ''}`}>
-            <div className="nav-container">
-              <ul className="nav-links">
-                <li><a href="/" onClick={() => setIsMenuOpen(false)}>Home</a></li>
-                <li><a href="/pastor" onClick={() => setIsMenuOpen(false)}>Pastor</a></li>
-                <li><a href="/beliefs" onClick={() => setIsMenuOpen(false)}>Our Beliefs</a></li>
-                <li><a href="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</a></li>
-                <li><a href="/locations" onClick={() => setIsMenuOpen(false)}>Locations</a></li>
-                <li><a href="/songs" onClick={() => setIsMenuOpen(false)}>Songs</a></li>
-                <li><a href="/events" onClick={() => setIsMenuOpen(false)}>Events</a></li>
-                <li><a href="/donate" onClick={() => setIsMenuOpen(false)}>Donate</a></li>
-              </ul>
-            </div>
-          </nav>
         </div>
       </div>
     </header>
