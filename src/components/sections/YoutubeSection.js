@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './YoutubeSection.css';
-import AnimateOnScroll from './AnimateOnScroll';
+import AnimateOnScroll from '../common/AnimateOnScroll';
 
 // Real video IDs from @MountZionPentecostalMinistries channel
 const VIDEOS = [

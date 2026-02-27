@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import useGlobalState from '../../hooks/useGlobalState';
 import './Header.css';
 
 const NAV_LINKS = [
@@ -12,6 +13,7 @@ const NAV_LINKS = [
 
 const Header = () => {
   const { i18n } = useTranslation();
+  const { theme, toggleTheme } = useGlobalState();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -50,6 +52,9 @@ const Header = () => {
 
           {/* Right actions */}
           <div className="nav-right">
+            <button className="theme-toggle-btn" onClick={toggleTheme} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'white', borderRadius: '4px', padding: '6px 10px', marginRight: '10px', cursor: 'pointer' }}>
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
             <button className="lang-toggle-btn" onClick={() =>
               i18n.changeLanguage(i18n.language === 'en' ? 'te' : 'en')
             }>

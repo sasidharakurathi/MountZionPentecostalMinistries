@@ -43,6 +43,20 @@
   --radius-card: 20px;
 }
 
+/* ─ Dark Mode Palette Override ─ */
+html.dark:root, .dark {
+  --heaven: #121212;
+  --heaven-glow: #1E1E1E;
+  --white: #1A1A1A;
+  --off-white: #242424;
+  --light-gray: #2A2A2A;
+  --dark: #FDFBFF;
+  --gray-text: rgba(255, 255, 255, 0.7);
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.8);
+}
+
 * {
   margin: 0;
   padding: 0;

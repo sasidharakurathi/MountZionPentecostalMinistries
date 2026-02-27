@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './TestimonialsSection.css';
-import AnimateOnScroll from './AnimateOnScroll';
+import AnimateOnScroll from '../common/AnimateOnScroll';
 
 const TestimonialsSection = () => {
     const { t: tr } = useTranslation();
     const [active, setActive] = useState(0);
 
     // Dynamically create testimonials array from translations
-    const testimonials = [
+    const testimonials = React.useMemo(() => [
         {
             quote: tr('testimonials.t1_quote'),
             name: tr('testimonials.t1_name'),
@@ -27,10 +27,10 @@ const TestimonialsSection = () => {
             role: tr('testimonials.t3_role'),
             avatar: '🕊️',
         },
-    ];
+    ], [tr]);
 
-    const prev = () => setActive(i => (i - 1 + testimonials.length) % testimonials.length);
-    const next = () => setActive(i => (i + 1) % testimonials.length);
+    const prev = React.useCallback(() => setActive(i => (i - 1 + testimonials.length) % testimonials.length), [testimonials.length]);
+    const next = React.useCallback(() => setActive(i => (i + 1) % testimonials.length), [testimonials.length]);
 
     const t = testimonials[active];
 

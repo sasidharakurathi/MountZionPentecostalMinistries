@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import AnimateOnScroll from './AnimateOnScroll';
+import AnimateOnScroll from '../common/AnimateOnScroll';
 import './PastorSection.css';
 
 const PastorSection = () => {
@@ -18,6 +18,7 @@ const PastorSection = () => {
                                     alt="Pastor Joshua Matthew"
                                     className="pastor-img"
                                     style={{ objectPosition: '15% 50%' }}
+                                    loading="lazy"
                                 />
                                 <div className="pastor-img-overlay"></div>
                             </div>

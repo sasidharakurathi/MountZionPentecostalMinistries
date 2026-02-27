@@ -1,12 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import './EventsSection.css';
-import AnimateOnScroll from './AnimateOnScroll';
+import AnimateOnScroll from '../common/AnimateOnScroll';
 
 const EventsSection = () => {
     const { t } = useTranslation();
 
-    const events = [
+    const events = React.useMemo(() => [
         {
             day: '20', month: 'APR', year: '2025',
             titleKey: 'events.e1_title',
@@ -28,7 +29,7 @@ const EventsSection = () => {
             locKey: 'events.e3_location',
             badgeKey: 'events.youth',
         },
-    ];
+    ], []);
 
     return (
         <section className="events-section" id="events">
@@ -44,7 +45,11 @@ const EventsSection = () => {
                 <div className="events-grid">
                     {events.map((ev, i) => (
                         <AnimateOnScroll key={i} animation="fade-left" delay={i * 0.1}>
-                            <div className="event-card">
+                            <motion.div
+                                className="event-card"
+                                whileHover={{ scale: 1.03, y: -5 }}
+                                transition={{ type: 'spring', stiffness: 300 }}
+                            >
                                 <div className="event-date-box">
                                     <span className="event-day">{ev.day}</span>
                                     <span className="event-month">{ev.month}</span>
@@ -56,7 +61,7 @@ const EventsSection = () => {
                                     <p className="event-time"><span>🕐</span> {t(ev.timeKey)}</p>
                                     <p className="event-location"><span>📍</span> {t(ev.locKey)}</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </AnimateOnScroll>
                     ))}
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import AnimateOnScroll from './AnimateOnScroll';
+import AnimateOnScroll from '../common/AnimateOnScroll';
 import './WorshipSection.css';
 
 const IconSun = () => (
