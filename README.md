@@ -35,25 +35,30 @@ src/
 
 ## Installation
 
-1. Make sure you have Node.js installed (version 14 or higher)
+1. Make sure you have Node.js and Java installed.
 
 2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. Build the React project:
 ```bash
-npm start
+npm run build
 ```
 
-4. Open your browser and navigate to `http://localhost:3000`
+4. Start the Native Java Server to serve the built files!
+```bash
+java Server.java
+```
+
+5. Open your browser and navigate to `http://localhost:8080`.
 
 ## Available Scripts
 
-- `npm start` - Runs the app in development mode
-- `npm build` - Builds the app for production
-- `npm test` - Launches the test runner
+- `java Server.java` - Runs the production Java server for your app.
+- `npm start` - Runs the React app in development mode on port 3000.
+- `npm run build` - Builds the app for production (required before running the Java server).
 - `npm run eject` - Ejects from Create React App (one-way operation)
 
 ## Key Components
